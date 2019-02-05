@@ -5,10 +5,7 @@
  */
 
 
-'use strict';
-
-const app = require('./app');
-const express = require('express');
+import app from "./app";
 
 // Constants
 const PORT = 8080;

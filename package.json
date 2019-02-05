@@ -2,9 +2,17 @@
   "name": "galene-be",
   "version": "0.0.0",
   "private": true,
+  "main": "./dist/index.js",
   "scripts": {
-    "start": "node server.js",
-    "debug": "node --inspect server.js"
+    "postinstall": "tsc",
+    "watch": "tsc -w",
+    "debug": "nodemon --watch ./dist --inspect=0.0.0.0:9222 --nolazy ./dist/index.js",
+    "docker-debug": "docker-compose up",
+    "start": "node ./dist/index.js",
+    "test": "jest --coverage --verbose",
+    "build": "tsc",
+    "serve-debug": "nodemon --inspect dist/server.js",
+    "watch-debug": "concurrently -k -p \"[{name}]\" -n \"Sass,TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run serve-debug\""
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -12,7 +20,16 @@
     "cookie-parser": "~1.3.5",
     "express": "^4.16.4",
     "knex": "^0.13.0",
-    "mysql": "^2.16.0",
     "pg": "^7.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.21",
+    "chai": "^4.2.0",
+    "jest": "^24.0.0",
+    "nodemon": "^1.18.9",
+    "ts-jest": "^23.10.5",
+    "ts-node": "^8.0.2",
+    "tslint": "^5.12.1",
+    "typescript": "^3.3.1"
   }
 }

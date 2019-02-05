@@ -1,0 +1,21 @@
+version: '2'
+services:
+  web:
+    build: .
+    command: npm run debug
+    volumes:
+      - ./dist:/usr/src/app/dist
+      - ./node_modules:/usr/src/app/node_modules
+    ports:
+      - "8080:8080"
+      - "9229:9229"
+      - "9222:9222"
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgres://postgres@postgres/galene
+  postgres:
+    image: postgres:11.1-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: galene

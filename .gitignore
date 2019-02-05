@@ -10,3 +10,7 @@ node_modules/
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
+dist
+
+# May be keep it in the future to provide direct debugging support
+.vscode
