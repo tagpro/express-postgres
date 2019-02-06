@@ -13,7 +13,7 @@ const HOST = '0.0.0.0';
 
 // App
 app.get('/', (req, res) => {
-  res.send('Hello world\n');
+  res.send('REST API - √ \n');
 });
 
 app.listen(PORT, HOST);

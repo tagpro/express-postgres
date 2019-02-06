@@ -19,3 +19,6 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_DB: galene
+    volumes:
+      # Use this to persist your database data on your local drive
+      - ~/workspace/docker/volumes/pg:/var/lib/postgresql/data

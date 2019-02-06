@@ -8,9 +8,6 @@ import bookshelf from './models/db';
 
 var app = express();
 
-// Connect database
-
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser())
