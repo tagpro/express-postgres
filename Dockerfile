@@ -9,6 +9,7 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
+RUN rm -rf dist
 RUN npm install
 # If you are building your code for production
 # RUN npm install --only=production
@@ -17,4 +18,5 @@ RUN npm install
 COPY . .
 
 EXPOSE 8080
+
 CMD [ "npm", "start" ]

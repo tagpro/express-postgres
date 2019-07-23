@@ -1,10 +1,16 @@
 {
     "compilerOptions": {
+        "lib": ["es5", "es6"],
         "sourceMap": true,
         "outDir": "dist",
+        "resolveJsonModule": true,
         "baseUrl": ".",
+        "allowJs": true
     },
+    "indent": [true, "spaces", 4],
     "include": [
-        "src/**/*"
+        "src",
+        "migrations/*",
+        "knexfile.js"
     ]
 }

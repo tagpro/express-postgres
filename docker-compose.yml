@@ -11,14 +11,23 @@ services:
       - "9229:9229"
       - "9222:9222"
     depends_on:
-      - postgres
+      - db
     environment:
-      DATABASE_URL: postgres://postgres@postgres/galene
-  postgres:
+      DATABASE_URL: postgres://alphabeta:alphabeta@db:5432/alphabeta
+      DATABASE_USER: alphabeta
+      DATABASE_NAME: alphabeta
+      DATABASE_PASSWORD: alphabeta
+  db:
     image: postgres:11.1-alpine
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_DB: galene
+      POSTGRES_USER: alphabeta
+      POSTGRES_DB: alphabeta
+      POSTGRES_PASSWORD: alphabeta
+    ports:
+      - 5432:5432
+    # Use this to persist your database data on your local drive
     volumes:
-      # Use this to persist your database data on your local drive
-      - ~/workspace/docker/volumes/pg:/var/lib/postgresql/data
+      - galene:/var/lib/postgresql/data
+
+volumes:
+  galene:
